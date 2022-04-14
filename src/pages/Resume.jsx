@@ -8,14 +8,19 @@ import { BackLink } from '../style/components/BackLink';
 
 
 export default function Resume() {
+
+  // get the state from te store
   const book = useSelector((state) => state.books);
   const myBook = book.books.books;
+
+  // get id from the url param
   const useQuery = () => {
     const { search } = useLocation();
     return React.useMemo(() => new URLSearchParams(search), [search]);
   }
   const query = useQuery();
 
+  // function who filter the array and display the book id who match the id param
   function getBook() {
     const result = myBook.filter(book => book.id === query.get("id"))
     return result;
@@ -29,6 +34,8 @@ export default function Resume() {
           Liste des livres
         </BackLink>
       </HeaderBooks>
+
+      {/* display book who match the id param */}
       {getBook().map(book => 
         <div key={book.id}>
           <h1>{book.title}</h1>

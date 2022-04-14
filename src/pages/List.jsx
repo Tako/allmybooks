@@ -7,9 +7,11 @@ import { HeaderBooks } from '../style/components/HeaderBooks';
 
 export default function List() {
   const dispatch = useDispatch();
+
+  // get the state from the store
   const { isLoading, books, errorMessage } = useSelector((state) => state.books);
 
-
+  // call the function who get the list of books
   useEffect(() => {  
     dispatch(loadBooksAsync())
   }, [dispatch]);

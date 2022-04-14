@@ -16,6 +16,7 @@ export default function Card(props)  {
         <ImageContainer>
           <img src={book.cover} alt="" />
         </ImageContainer>
+        {/* pass the id of the book in the url param */}
         <ReadMore exact="true" to={`book-detail?id=${book.id}`}>
           Voir plus...
         </ReadMore>
