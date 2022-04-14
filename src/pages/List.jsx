@@ -24,7 +24,8 @@ export default function List() {
       <ContainerBooks>
         {isLoading && <h3>Loading...</h3>}
         {errorMessage && <h3>{errorMessage}</h3>}
-      
+        
+        {/* display books from API */}
         {books && books.books.map(book => 
         
           <Card book={book} key={book.id} /> 
