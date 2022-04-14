@@ -44,7 +44,6 @@ export default function Resume() {
   const result = myBook.filter(book => book.id === query.get("id"));
   const resultAuthor = copyArray.filter(book => book.author === result[0].author && book !== result[0]);
 
-  console.log('BBBBB',resultAuthor)
   return (
     <BookResumeDisplay>
       <HeaderBooks>
@@ -61,7 +60,7 @@ export default function Resume() {
       {/* display link for navigate on the same author book(s)*/}
       {resultAuthor.length ? <h3>Livres du même auteur</h3> : ""}
       {resultAuthor.map(book => 
-        <ReadMore exact="true" to={`?id=${book.id}`}>
+        <ReadMore exact="true" to={`?id=${book.id}`} key={book.id}>
           {book.title}
         </ReadMore>
       )}
