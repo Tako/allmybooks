@@ -1,8 +1,9 @@
-import React from 'react';
-import List from "./pages/List";
-import Resume from "./pages/Resume";
-import { BrowserRouter, Routes, Route  } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
 import { Container } from './style/components/Container';
+import List from "./pages/BookList";
+import React from 'react';
+import { ResumeContainer } from "./pages/Resume/ResumeContainer";
 
 export default function App() {
   return (
@@ -10,7 +11,7 @@ export default function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={ <List /> } />
-          <Route path="/book-detail" element={ <Resume /> } />
+          <Route path="/book-detail/:id" element={ <ResumeContainer /> } />
         </Routes>
       </BrowserRouter>
     </Container>
